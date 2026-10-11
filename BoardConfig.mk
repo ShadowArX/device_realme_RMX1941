@@ -151,3 +151,6 @@ SELINUX_IGNORE_NEVERALLOWS := true
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor.prop
+
+# Vendor Security Patch
+VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
