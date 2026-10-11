@@ -2,12 +2,7 @@ on early-init
     write /sys/module/musb_hdrc/parameters/kernel_init_done 1
 
 on post-fs
-#ifndef ODM_HQ_EDIT
-#/* duanhanxing@ODM.HQ.BSP.Basic, 2018/12/09, Modify for OPPO VID&PID */
-#setprop vendor.usb.vid "0x0E8D"
-#else /* ODM_HQ_EDIT */
 setprop vendor.usb.vid "0x22d9"
-#endif /* ODM_HQ_EDIT */
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mkdir /config/usb_gadget/g1 0770 shell shell
@@ -119,12 +114,7 @@ on property:sys.usb.config=hid && property:sys.usb.configfs=1
 ### start adbd at init.usb.configfs.rc ###
 on property:sys.usb.config=adb && property:vendor.usb.acm_cnt=0 && \
 property:sys.usb.configfs=1
-#ifndef ODM_HQ_EDIT
-#/* duanhanxing@BSP.BaseDrv.CHG.Basic, 2018/12/09, Modify for OPPO VID&PID */
-#    setprop vendor.usb.pid 0x201C
-#else /*ODM_HQ_EDIT*/
     setprop vendor.usb.pid 0x2769
-#endif /*ODM_HQ_EDIT*/
 
 on property:sys.usb.config=adb && property:vendor.usb.acm_cnt=1 && \
 property:sys.usb.configfs=1
@@ -950,5 +940,3 @@ on property:vendor.usb.printk=*
 
 on property:persist.vendor.usb.printk=*
 	setprop vendor.usb.printk ${persist.vendor.usb.printk}
-
-### PLATFORM VARIANT, cat $rc_file | grep write | sort | grep -vE "android0|usb20_phy" | awk '{print $2}' | uniq ###
