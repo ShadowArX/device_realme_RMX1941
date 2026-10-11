@@ -22,15 +22,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # IMS
 $(call inherit-product, vendor/realme/RMX1941-ims/RMX1941-ims.mk)
 
-# Dynamic Partition
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
-
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/flash_super_dummy.sh:install/bin/flash_super_dummy.sh
-
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 28
+
+# Inherit several Android Go Configurations (Beneficial for everyone, even on non-Go devices)
+PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
+PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
 
 # APNs
 PRODUCT_COPY_FILES += \
@@ -138,10 +135,6 @@ PRODUCT_PACKAGES += \
     libhidltransport.vendor \
     libhwbinder \
     libhwbinder.vendor
-
-# Inherit several Android Go Configurations (Beneficial for everyone, even on non-Go devices)
-PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
-PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
 
 # Input/DT2W
 PRODUCT_COPY_FILES += \
