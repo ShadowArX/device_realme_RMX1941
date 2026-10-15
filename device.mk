@@ -221,8 +221,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
-# Lineage Charger
-WITH_LINEAGE_CHARGER := true
 
 # Power
 PRODUCT_PACKAGES += \
@@ -288,7 +286,9 @@ PRODUCT_PACKAGES += \
     libsensorndkbridge
 
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+PRODUCT_SOONG_NAMESPACES += \
+hardware/mediatek \
+$(DEVICE_PATH)
 
 # Symbols
 PRODUCT_PACKAGES += \
