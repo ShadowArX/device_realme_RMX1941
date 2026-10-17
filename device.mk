@@ -68,6 +68,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.bluetooth@1.0.vendor
 
+# PowerOffAlarm
+PRODUCT_PACKAGES += \
+    PowerOffAlarm
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.2.vendor \
