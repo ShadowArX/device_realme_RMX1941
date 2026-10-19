@@ -288,7 +288,6 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-hardware/mediatek \
 $(DEVICE_PATH)
 
 # Symbols
